@@ -1,9 +1,6 @@
-import React, {useContext} from "react";
+import React from "react";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Home from "../screens/Home";
-import { Feather } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import {color} from "../constants/theme";
 import Profile from "../screens/Profile";
 import Favourite from "../screens/Favourite";
 import Order from "../screens/Order";

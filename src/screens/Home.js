@@ -1,12 +1,22 @@
-import {FlatList, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {
+    FlatList,
+    Image,
+    SafeAreaView,
+    ScrollView,
+    Text,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View
+} from "react-native";
 import React from "react";
 import {color} from "../constants/theme";
 import {Feather} from '@expo/vector-icons';
 import Promos from "../components/Promos";
-import {categories, product, products, restaurants} from "../dummy";
-import Nearby from "./Nearby";
+import {categories, products} from "../dummy";
+import SearchInput from "../components/SearchInput";
+import ProductHorizontalList from "../components/ProductHorizontalList";
 
-const Home = () => {
+const Home = ({navigation}) => {
 
     const Header = () => {
         return (
@@ -25,29 +35,7 @@ const Home = () => {
                         5343A Egiht Avenue, NEw Yorkm US
                     </Text>
                 </View>
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        marginTop: 20,
-                        paddingBottom: 10
-                    }}
-                >
-                    <TextInput
-                        placeholder='Searching...'
-                        style={{
-                            paddingLeft: 40,
-                            paddingRight: 10,
-                            height: 40,
-                            borderRadius: 5,
-                            backgroundColor: 'white',
-                            marginRight: 20,
-                            flex: 1
-                        }}
-                    />
-                    <Feather name="filter" size={24} color="white"/>
-                </View>
+                <SearchInput navigation={navigation}/>
             </View>
         )
     }
@@ -240,33 +228,6 @@ const Home = () => {
 
     const NearbyRestaurants = () => {
 
-
-        const renderItem = ({item}) => {
-            return (
-                <TouchableOpacity
-                    style={{
-                        marginRight: 10,
-                        width: 80
-                    }}
-                >
-                    <Image
-                        souce={{uri: item.photoURL}}
-                        style={{
-                            width: '100%', height: 80,
-                            backgroundColor: 'red',
-                            borderRadius: 5
-                        }}
-                    />
-                    <Text numberOfLines={2}>
-                        {item.name}
-                    </Text>
-                    <Text style={{color: color.primary}}>
-                        ${item.price}
-                    </Text>
-                </TouchableOpacity>
-            )
-        }
-
         return (
             <View style={{
                 marginTop: 20,
@@ -290,91 +251,87 @@ const Home = () => {
                             backgroundColor: 'white',
                             borderRadius: 5,
                             marginHorizontal: 10,
-                            padding: 10,
+                            padding: 5,
                             marginBottom: 10
                         }}
                     >
-                        <View
-                            style={{
-                                flexDirection: 'row',
-                                justifyContent: 'space-between'
-                            }}
+                        <TouchableWithoutFeedback
+                            onPress={() => navigation.navigate("Restaurant")}
                         >
-                            <Image
-                                source={{uri: 'http'}}
+                            <View
                                 style={{
-                                    width: 100, height: 100,
-                                    backgroundColor: 'red',
-                                    borderRadius: 5
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-between'
                                 }}
-                            />
-                            <View style={{marginLeft: 10, flexDirection: 'column', justifyContent: 'space-between'}}>
-                                <Text>Kichi Coffe & Drink</Text>
-                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                    <Feather name="map-pin" size={15} color="gray"/>
-                                    <Text numberOfLines={1} style={{
-                                        color: 'gray',
-                                        marginLeft: 5
-                                    }}>
-                                        76A Eight Avenue, New York
-                                    </Text>
-                                </View>
-                                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                    <Feather name="star" size={15} color="gold"/>
-                                    <Text style={{
-                                        fontWeight: 'bold',
-                                        marginLeft: 5,
-                                        color: 'gray'
-                                    }}>
-                                        4.5
-                                    </Text>
-                                    <Text style={{
-                                        color: 'gray',
-                                        marginLeft: 5
-                                    }}>
-                                        (12 Reviews)
-                                    </Text>
-                                </View>
-
-                                <View
+                            >
+                                <Image
+                                    source={{uri: 'http'}}
                                     style={{
-                                        borderRadius: 5,
-                                        borderColor: color.primary,
-                                        borderWidth: 2,
-                                        width: 100,
-                                        padding: 2,
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        height: 20,
-                                        color: color.primary,
-                                        fontSize: 12
+                                        width: 100, height: 100,
+                                        backgroundColor: 'red',
+                                        borderRadius: 5
                                     }}
-                                >
-                                    <Text
+                                />
+                                <View
+                                    style={{marginLeft: 10, flexDirection: 'column', justifyContent: 'space-between'}}>
+                                    <Text>Kichi Coffe & Drink</Text>
+                                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                        <Feather name="map-pin" size={15} color="gray"/>
+                                        <Text numberOfLines={1} style={{
+                                            color: 'gray',
+                                            marginLeft: 5
+                                        }}>
+                                            76A Eight Avenue, New York
+                                        </Text>
+                                    </View>
+                                    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                                        <Feather name="star" size={15} color="gold"/>
+                                        <Text style={{
+                                            fontWeight: 'bold',
+                                            marginLeft: 5,
+                                            color: 'gray'
+                                        }}>
+                                            4.5
+                                        </Text>
+                                        <Text style={{
+                                            color: 'gray',
+                                            marginLeft: 5
+                                        }}>
+                                            (12 Reviews)
+                                        </Text>
+                                    </View>
+
+                                    <View
                                         style={{
+                                            borderRadius: 5,
+                                            borderColor: color.primary,
+                                            borderWidth: 2,
+                                            width: 100,
+                                            padding: 2,
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            height: 20,
                                             color: color.primary,
                                             fontSize: 12
                                         }}
                                     >
-                                        FREE DELIVERY
-                                    </Text>
+                                        <Text
+                                            style={{
+                                                color: color.primary,
+                                                fontSize: 12
+                                            }}
+                                        >
+                                            FREE DELIVERY
+                                        </Text>
+                                    </View>
                                 </View>
+
+                                <Feather name="bookmark" size={20} color="black"/>
+
                             </View>
+                        </TouchableWithoutFeedback>
 
-                            <Feather name="bookmark" size={20} color="black"/>
-
-                        </View>
-
-
-                        <View style={{marginTop: 10}}>
-                            <FlatList
-                                horizontal={true}
-                                showsHorizontalScrollIndicator={false}
-                                data={products}
-                                renderItem={renderItem}
-                                keyExtractor={item => item.id.toString()}
-                            />
-                        </View>
+                        <ProductHorizontalList products={products} paddingLeft={0} />
                     </View>
                 )}
 
