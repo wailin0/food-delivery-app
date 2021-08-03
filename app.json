@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "food devlivery app made with react native, firebase and stripe payment api",
+    "githubUrl": "https://github.com/wailin0/food-delivery-app"
   }
 }

@@ -1,37 +1,17 @@
-import {FlatList, Image, TouchableOpacity, View} from "react-native";
+import {FlatList, Image, StyleSheet, TouchableOpacity, View} from "react-native";
 import React from "react";
+import {promos} from "../../dummy";
+import {color} from "../../constants/theme";
 
-
-const promos = [
-    {
-        id: 1,
-        photoURL: 'htt'
-    },
-    {
-        id: 2,
-        photoURL: ''
-    },
-    {
-        id: 3,
-        photoURL: 'htt'
-    }
-]
 
 const Promos = () => {
 
     const renderItem = ({item}) => {
         return (
-            <TouchableOpacity style={{
-                marginRight: 10
-            }}>
+            <TouchableOpacity style={styles.itemContiner}>
                 <Image
-                    souce={{uri: item.photoURL}}
-                    style={{
-                        height: 90,
-                        width: 250,
-                        backgroundColor: 'red',
-                        borderRadius: 5
-                    }}
+                    source={{uri: item.photoURL}}
+                    style={styles.promoPhoto}
                 />
             </TouchableOpacity>
         )
@@ -50,5 +30,17 @@ const Promos = () => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    itemContainer: {
+        marginRight: 10
+    },
+    promoPhoto: {
+        height: 90,
+        width: 250,
+        backgroundColor: color.lightgray,
+        borderRadius: 5
+    }
+})
 
 export default Promos

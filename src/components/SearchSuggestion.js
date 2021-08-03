@@ -1,9 +1,9 @@
-import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
-import {flexRow} from "../constants/styles";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Feather} from "@expo/vector-icons";
 import React from "react";
 import {color} from "../constants/theme";
 import {products} from "../dummy";
+import {flexRowSpace} from "../constants/styles";
 
 const SearchSuggestion = () => {
 
@@ -30,14 +30,14 @@ const SearchSuggestion = () => {
     }
 
     return (
-        <View style={{marginTop: 10, paddingHorizontal: 10}}>
-            <View style={{...flexRow, marginBottom: 10}}>
+        <View style={styles.root}>
+            <View style={{...flexRowSpace, marginBottom: 10}}>
                 <Text style={{fontWeight: 'bold'}}>History</Text>
                 <Text style={{color: 'gray'}}>Clear all</Text>
             </View>
 
             {['Milk Tea', 'Rice Chicken', 'Coffee'].map((text, index) =>
-                <View key={index} style={{...flexRow, marginBottom: 10}}>
+                <View key={index} style={{...flexRowSpace, marginBottom: 10}}>
                     <Text style={{color: 'gray'}}>{text}</Text>
                     <Feather name="x" size={15} color="gray"/>
                 </View>
@@ -50,7 +50,7 @@ const SearchSuggestion = () => {
             <View style={{
                 marginTop: 20
             }}>
-                <View style={{...flexRow}}>
+                <View style={{...flexRowSpace}}>
                     <Text style={{fontWeight: 'bold'}}>Suggestions</Text>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Text style={{color: color.primary}}>View all</Text>
@@ -58,7 +58,7 @@ const SearchSuggestion = () => {
                     </View>
                 </View>
 
-                <View style={{marginTop: 10}}>
+                <View style={styles.listContainer}>
                     <FlatList
                         data={products}
                         renderItem={renderItem}
@@ -71,5 +71,16 @@ const SearchSuggestion = () => {
         </View>
     )
 }
+
+
+const styles = StyleSheet.create({
+    root: {
+        marginTop: 10,
+        paddingHorizontal: 10
+    },
+    listContainer: {
+        marginTop: 10
+    }
+})
 
 export default SearchSuggestion

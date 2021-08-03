@@ -2,11 +2,11 @@ import {Text, TouchableOpacity, View} from "react-native";
 import {color} from "../constants/theme";
 import {Feather} from "@expo/vector-icons";
 import React from "react";
-import {flexRow} from "../constants/styles";
+import {flexRowSpace} from "../constants/styles";
 
 const TitleHeader = ({navigation, title, goTo}) => {
     return (
-        <View style={{...flexRow,paddingHorizontal:10}}>
+        <View style={{...flexRowSpace,paddingHorizontal:10}}>
             <Text style={{fontWeight: 'bold'}}>{title}</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate(goTo)}

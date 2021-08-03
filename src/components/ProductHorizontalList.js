@@ -1,4 +1,4 @@
-import {FlatList, Image, Text, TouchableOpacity, View} from "react-native";
+import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import {color} from "../constants/theme";
 
@@ -7,26 +7,15 @@ const ProductHorizontalList = ({products, paddingLeft}) => {
 
     const renderItem = ({item}) => {
         return (
-            <TouchableOpacity
-                style={{
-                    marginRight: 10,
-                    width: 80,
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                }}
-            >
+            <TouchableOpacity style={styles.root}>
                 <Image
-                    souce={{uri: item.photoURL}}
-                    style={{
-                        width: '100%', height: 80,
-                        backgroundColor: 'red',
-                        borderRadius: 5
-                    }}
+                    source={{uri: item.photoURL}}
+                    style={styles.image}
                 />
                 <Text numberOfLines={2} style={{flex: 1}}>
                     {item.name}
                 </Text>
-                <Text style={{color: color.primary}}>
+                <Text style={styles.price}>
                     ${item.price}
                 </Text>
             </TouchableOpacity>
@@ -46,5 +35,22 @@ const ProductHorizontalList = ({products, paddingLeft}) => {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    root:{
+        marginRight: 10,
+        width: 80,
+        flexDirection: 'column',
+        justifyContent: 'space-between'
+    },
+    image:{
+        width: '100%', height: 80,
+        backgroundColor: color.lightgray,
+        borderRadius: 5
+    },
+    price:{
+        color: color.primary
+    }
+})
 
 export default ProductHorizontalList
