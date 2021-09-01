@@ -6,6 +6,7 @@ import Restaurant from "../screens/Restaurant";
 import ProfileDetail from "../components/Profile/ProfileDetail";
 import PaymentsMethods from "../components/Profile/PaymentMethods";
 import Address from "../components/Profile/Address";
+import TrackOrder from "../components/Order/TrackOrder";
 
 
 const Stack = createStackNavigator()
@@ -26,6 +27,7 @@ const RootNavigation = () => {
             <Stack.Screen name='Profile Detail' component={ProfileDetail}/>
             <Stack.Screen name='Payment Methods' component={PaymentsMethods}/>
             <Stack.Screen name='Address' component={Address}/>
+            <Stack.Screen name='Track Order' component={TrackOrder}/>
         </Stack.Navigator>
     );
 };

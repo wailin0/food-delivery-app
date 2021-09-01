@@ -3,11 +3,14 @@ import React from "react";
 import {flexRow} from "../../constants/styles";
 import {color} from "../../constants/theme";
 
-const OrderList = ({orders}) => {
+const OrderList = ({orders,navigation}) => {
 
     const renderItem = ({item}) => {
         return (
-            <TouchableOpacity style={styles.root}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Track Order")}
+                style={styles.root}
+            >
                 <Image
                     source={{uri: item.photoURL}}
                     style={styles.image}

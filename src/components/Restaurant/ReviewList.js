@@ -26,7 +26,9 @@ const ReviewList = () => {
                         <Text style={{marginVertical: 5}}>{review.text}</Text>
                         <View style={styles.userReviewPhotoContainer}>
                             {review.photos.map(photo =>
-                                <TouchableOpacity style={{marginRight: 5, marginBottom: 5}}>
+                                <TouchableOpacity
+                                    key={photo.id}
+                                    style={{marginRight: 5, marginBottom: 5}}>
                                     <Image
                                         source={{uri: photo}}
                                         style={styles.userReviewPhoto}

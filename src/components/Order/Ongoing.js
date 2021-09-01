@@ -45,7 +45,7 @@ const Ongoing = ({navigation}) => {
 
     return (
         <SafeAreaView style={{flex: 1}}>
-            <OrderList orders={orders} />
+            <OrderList orders={orders} navigation={navigation}/>
         </SafeAreaView>
     )
 }
