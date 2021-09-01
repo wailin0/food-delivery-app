@@ -8,7 +8,7 @@ const Promos = () => {
 
     const renderItem = ({item}) => {
         return (
-            <TouchableOpacity style={styles.itemContiner}>
+            <TouchableOpacity style={styles.itemContainer}>
                 <Image
                     source={{uri: item.photoURL}}
                     style={styles.promoPhoto}

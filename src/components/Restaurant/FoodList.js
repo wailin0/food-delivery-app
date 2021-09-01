@@ -28,7 +28,7 @@ const FoodList = () => {
                         <Text style={{color:'gray',marginLeft:10}}>{food.products.length} items</Text>
                     </View>
                     {food.products.map(product =>
-                        <ProductItem product={product}/>
+                        <ProductItem key={product.id} product={product}/>
                     )}
                 </View>
             )}

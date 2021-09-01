@@ -4,3 +4,10 @@ export const color = {
     gray: 'gray',
     lightgray: 'lightgray'
 }
+
+export const font = {
+    title: {
+        fontSize: 23,
+        fontWeight: 'bold',
+    }
+}

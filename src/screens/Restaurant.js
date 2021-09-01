@@ -1,10 +1,10 @@
 import {ImageBackground, SafeAreaView, StyleSheet, Text, View} from "react-native";
 import React from "react";
-import {Feather} from "@expo/vector-icons";
+import {Entypo, Feather} from "@expo/vector-icons";
 import {color} from "../constants/theme";
 import Header from "../components/Restaurant/Header";
 import {flexRow} from "../constants/styles";
-import TabBar from "../components/Restaurant/TabBar";
+import RestaurantTab from "../navigations/TopTab/RestaurantTab";
 
 const Restaurant = ({navigation}) => {
 
@@ -26,14 +26,13 @@ const Restaurant = ({navigation}) => {
                             <Text style={styles.location}>343 Eight Avenue , New York</Text>
                         </View>
                         <View style={{...flexRow}}>
-                            <Feather name='star' size={14} color='gold'/>
+                            <Entypo name='star' size={16} color='gold'/>
                             <Text style={styles.rating}>4.5 (123 Reviews)</Text>
                         </View>
                     </View>
                 </ImageBackground>
 
-
-                <TabBar />
+                <RestaurantTab />
             </View>
         </SafeAreaView>
     )
@@ -61,10 +60,12 @@ const styles = StyleSheet.create({
     },
     location: {
         fontSize: 14,
+        marginLeft:5,
         color: 'white'
     },
     rating:{
         fontSize: 13,
+        marginLeft:5,
         color: 'white'
     }
 })

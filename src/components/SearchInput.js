@@ -14,7 +14,7 @@ const SearchInput = ({navigation}) => {
             />
             <TextInput
                 placeholder='Search...'
-                onFocus={() => navigation.navigate('Search')}
+                // onFocus={() => navigation.navigate('Search')}
                 style={styles.searchInput}
             />
 

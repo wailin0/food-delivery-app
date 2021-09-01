@@ -5,9 +5,9 @@ import Profile from "../screens/Profile";
 import Favourite from "../screens/Favourite";
 import Order from "../screens/Order";
 import {Feather} from '@expo/vector-icons';
-import Nearby from "../screens/Nearby";
 import {color} from "../constants/theme";
 import {Text} from "react-native";
+import Nearby from "../screens/Nearby";
 
 const BottomTab = () => {
 
@@ -15,10 +15,8 @@ const BottomTab = () => {
 
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                style: {
-                    background: 'transparent',
-                }
+            screenOptions={{
+                headerShown: false,
             }}
         >
             <Tab.Screen
