@@ -1,6 +1,10 @@
 # food-delivery-app
 food devlivery app made with react native, firebase and stripe payment api
 
+## Expo Link
+
+https://expo.dev/@wailinhtet/food-delivery-app
+
 
 ## Design
 
